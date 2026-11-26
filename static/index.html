@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f4f6f8">
+  <title>Classflow | A6 Timetable Studio</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <a class="brand" href="#schedule" aria-label="Classflow home">
+        <span class="brand-mark">C<span>+</span></span>
+        <span><strong>classflow</strong><small>A6 PROJECT STUDIO</small></span>
+      </a>
+      <div class="side-label">WORKSPACE</div>
+      <nav class="side-nav" aria-label="Main navigation">
+        <button class="nav-item active" data-view="schedule"><span class="nav-icon">▦</span>Timetable <span class="nav-arrow">›</span></button>
+        <button class="nav-item" data-view="resources"><span class="nav-icon">▤</span>Resources <span class="nav-arrow">›</span></button>
+        <button class="nav-item" data-view="algorithms"><span class="nav-icon">⌘</span>Algorithms <span class="nav-arrow">›</span></button>
+      </nav>
+      <div class="side-bottom">
+        <div class="semester-card"><span class="semester-icon">✳</span><div><small>ACTIVE TERM</small><strong>Academic 2026–27</strong></div></div>
+        <div class="team-card"><div class="team-label">PROJECT TEAM <span class="team-count">03</span></div><div class="avatar-row"><span class="avatar av-blue">HK</span><span class="avatar av-orange">D</span><span class="avatar av-green">AR</span><span class="avatar-plus">+</span></div><p>Himanshu Kumar Singh<br>Dipanshu · Aman Raj</p></div>
+        <div class="side-foot"><span class="status-dot"></span>Local database connected</div>
+      </div>
+    </aside>
+
+    <main class="main-area">
+      <header class="topbar">
+        <div class="breadcrumb"><span>Workspace</span><b>/</b><strong id="crumb-current">Timetable</strong></div>
+        <div class="top-actions"><span class="saved-pill"><span class="status-dot"></span>All changes saved</span><span class="date-pill" id="today-label">Thursday, 26 November</span><span class="profile-avatar">A6</span></div>
+      </header>
+
+      <section id="view-schedule" class="view active-view">
+        <div class="page-heading heading-row">
+          <div><div class="eyebrow"><span class="eyebrow-line"></span>ACADEMIC OPERATIONS</div><h1>Timetable <span class="heading-dot">.</span></h1><p class="page-subtitle">A clear view of every class, room, and time slot.</p></div>
+          <div class="heading-actions"><button class="button button-quiet" id="export-button"><span class="button-icon">↓</span> Export CSV</button><button class="button button-primary" id="generate-button"><span class="sparkle">✧</span> Generate timetable</button></div>
+        </div>
+        <div class="stats-grid">
+          <article class="stat-card"><div class="stat-top"><span>Scheduled classes</span><span class="stat-icon icon-purple">▦</span></div><div class="stat-value" id="stat-classes">—</div><div class="stat-foot"><span class="stat-note">This week's plan</span></div></article>
+          <article class="stat-card"><div class="stat-top"><span>Student batches</span><span class="stat-icon icon-blue">♧</span></div><div class="stat-value" id="stat-batches">—</div><div class="stat-foot"><span class="stat-note">Across all programs</span></div></article>
+          <article class="stat-card"><div class="stat-top"><span>Faculty</span><span class="stat-icon icon-orange">♙</span></div><div class="stat-value" id="stat-faculty">—</div><div class="stat-foot"><span class="stat-note">Teaching this term</span></div></article>
+          <article class="stat-card"><div class="stat-top"><span>Room utilization</span><span class="stat-icon icon-green">⌁</span></div><div class="stat-value"><span id="stat-utilization">—</span><small>%</small></div><div class="stat-foot"><span class="mini-progress"><i id="utilization-bar"></i></span><span class="stat-note">of available slots</span></div></article>
+        </div>
+        <section class="panel schedule-panel">
+          <div class="panel-heading schedule-toolbar">
+            <div><h2>Weekly schedule</h2><p class="panel-subtitle">Select a batch to view its classes. Click a class to make changes.</p></div>
+            <div class="toolbar-controls"><label class="select-wrap"><span class="sr-only">Filter by batch</span><select id="batch-filter"></select><span class="select-chevron">⌄</span></label><div class="view-toggle" aria-label="Schedule view"><button class="selected" title="Weekly grid">▦</button><button title="List view" id="list-toggle">☷</button></div></div>
+          </div>
+          <div id="schedule-grid" class="schedule-grid"><div class="loading-state">Loading your timetable<span class="loading-dots">...</span></div></div>
+          <div class="schedule-legend"><span><i class="legend-dot dot-violet"></i> Lecture</span><span><i class="legend-dot dot-blue"></i> Lab / practical</span><span class="legend-tip">↗ Select a class to edit the room or time</span></div>
+        </section>
+        <div class="bottom-grid">
+          <section class="panel algorithm-card"><div class="panel-heading"><div><div class="eyebrow small-eyebrow">SCHEDULING ENGINE</div><h2>Constraint-aware scheduling</h2></div><span class="engine-mark">⌘</span></div><p>The scheduler uses graph coloring and backtracking to place classes while respecting faculty, batch, and room availability.</p><button class="text-link" data-goto="algorithms">Explore the algorithms <span>→</span></button></section>
+          <section class="panel next-card"><div class="panel-heading"><div><div class="eyebrow small-eyebrow">PROJECT DETAILS</div><h2>Designed for your campus</h2></div><span class="campus-mark">✦</span></div><p>Manage faculty, student batches, classrooms, and weekly time slots in one place.</p><button class="text-link" data-goto="resources">Manage timetable resources <span>→</span></button></section>
+        </div>
+      </section>
+
+      <section id="view-resources" class="view">
+        <div class="page-heading heading-row"><div><div class="eyebrow"><span class="eyebrow-line"></span>SETUP & MANAGEMENT</div><h1>Resources <span class="heading-dot">.</span></h1><p class="page-subtitle">Keep campus details up to date before generating a timetable.</p></div><button class="button button-primary" id="add-resource-button"><span class="button-icon">＋</span> Add resource</button></div>
+        <div class="resource-tabs" id="resource-tabs"><button class="selected" data-resource="faculty">Faculty <span id="count-faculty">0</span></button><button data-resource="subjects">Subjects <span id="count-subjects">0</span></button><button data-resource="batches">Batches <span id="count-batches">0</span></button><button data-resource="rooms">Classrooms <span id="count-rooms">0</span></button><button data-resource="slots">Time slots <span id="count-slots">0</span></button></div>
+        <section class="panel resource-panel"><div class="panel-heading"><div><h2 id="resource-title">Faculty members</h2><p class="panel-subtitle" id="resource-description">Faculty who teach classes during this term.</p></div><div class="table-search"><span>⌕</span><input id="resource-search" type="search" placeholder="Search resources…"></div></div><div class="table-scroll"><table class="resource-table"><thead id="resource-head"></thead><tbody id="resource-body"></tbody></table></div><div class="table-footer" id="resource-footer"></div></section>
+        <div class="info-banner"><span class="info-icon">i</span><p>Changes to faculty, subjects, batches, rooms, or time slots take effect the next time you generate the timetable.</p></div>
+      </section>
+
+      <section id="view-algorithms" class="view">
+        <div class="page-heading"><div><div class="eyebrow"><span class="eyebrow-line"></span>HOW IT WORKS</div><h1>Scheduling engine <span class="heading-dot">.</span></h1><p class="page-subtitle">Core data structures and algorithms used by the timetable generator.</p></div></div>
+        <div class="algorithm-hero"><div><span class="algorithm-chip">CORE DSA</span><h2>Turn campus constraints<br>into a workable week.</h2><p>Each class meeting becomes a vertex in a conflict graph. The engine assigns a time and room while checking every constraint.</p><button class="button button-white" data-goto="schedule">View the timetable <span>→</span></button></div><div class="graph-art" aria-hidden="true"><svg viewBox="0 0 340 230"><path d="M66 59 153 34 254 67 282 157 185 194 71 166 66 59M66 59l119 135M153 34l32 160M254 67 71 166M66 59l216 98M153 34l101 33M185 194l97-37"/><circle cx="66" cy="59" r="15"/><circle cx="153" cy="34" r="15"/><circle cx="254" cy="67" r="15"/><circle cx="282" cy="157" r="15"/><circle cx="185" cy="194" r="15"/><circle cx="71" cy="166" r="15"/><circle cx="160" cy="111" r="8"/></svg><span class="graph-caption">ILLUSTRATIVE CONFLICT GRAPH</span></div></div>
+        <div class="algo-cards"><article class="panel algo-detail"><div class="algo-number">01</div><div class="algo-symbol symbol-lilac">✳</div><h3>Conflict graph</h3><p>Every class meeting is a vertex. An edge connects two meetings that share a faculty member or student batch, so they cannot occupy the same time slot.</p><div class="complexity-row"><span>Representation</span><strong>Adjacency sets</strong></div></article><article class="panel algo-detail"><div class="algo-number">02</div><div class="algo-symbol symbol-blue">⌘</div><h3>Backtracking + graph coloring</h3><p>The engine tries time and room assignments, checks constraints, and backtracks when a choice blocks the remaining classes. MRV selects the most constrained class first.</p><div class="complexity-row"><span>Worst case</span><strong>Exponential search</strong></div></article><article class="panel algo-detail"><div class="algo-number">03</div><div class="algo-symbol symbol-orange">↗</div><h3>Greedy comparison</h3><p>For a quick comparison, a greedy scheduler places the most connected class first in the earliest available slot and room. It is fast, but may fail where backtracking can succeed.</p><div class="complexity-row"><span>Typical search</span><strong>Fast, no backtracking</strong></div></article></div>
+        <section class="panel run-panel"><div><div class="eyebrow small-eyebrow">RUN A COMPARISON</div><h2>Compare the schedulers</h2><p class="panel-subtitle">Generate a fresh timetable with either method and view its search statistics.</p></div><div class="run-controls"><select id="algorithm-select"><option value="backtracking">Backtracking (recommended)</option><option value="greedy">Greedy</option></select><button class="button button-primary" id="run-algorithm">Run scheduler <span>→</span></button></div><div id="algorithm-result" class="algorithm-result hidden"></div></section>
+      </section>
+
+      <footer class="app-footer"><span>CLASSFLOW <b>·</b> A6 ASSIGNMENT</span><span>Automated College Timetable & Resource Scheduling System</span></footer>
+    </main>
+  </div>
+  <div id="modal-root"></div>
+  <div id="toast-region" class="toast-region" aria-live="polite"></div>
+  <script src="/app.js"></script>
+</body>
+</html>
+
