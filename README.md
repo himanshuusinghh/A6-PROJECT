@@ -5,7 +5,7 @@ An end-to-end college timetable and resource scheduling application for the A6 p
 ## Project team
 
 - Himanshu Kumar Singh
-- Dipanshu
+- Depanshu
 - Aman Raj
 
 Suggested contribution split (update this to reflect the work your team actually completes):
