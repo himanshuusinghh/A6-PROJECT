@@ -11,7 +11,7 @@ An end-to-end college timetable and resource scheduling application for the A6 p
 Suggested contribution split (update this to reflect the work your team actually completes):
 
 - **Himanshu Kumar Singh:** graph model, constraint checks, and backtracking scheduler.
-- **Dipanshu:** SQLite schema, backend routes, and data/resource management.
+- **Depanshu:** SQLite schema, backend routes, and data/resource management.
 - **Aman Raj:** frontend views, timetable editing, CSV export, and project presentation.
 
 All team members should review the complete workflow and be ready to explain the scheduler and their own contribution during evaluation.
